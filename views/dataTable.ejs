@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Table</title>
+    <style>
+        /* CSS for table */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* CSS for delete button */
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Currency</th>
+                <th>Department</th>
+                <th>Sub-Department</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const row of data) { %>
+                <tr>
+                    <td><%= row.name %></td>
+                    <td><%= row.salary %></td>
+                    <td><%= row.currency %></td>
+                    <td><%= row.department %></td>
+                    <td><%= row.sub_department %></td>
+                    <td>
+                      <button class="delete-button" onclick="deleteRow('<%= JSON.stringify(row) %>')">Delete</button>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <script>
+        // Function to handle row deletion
+        async function deleteRow(rowData) {
+            // You can perform the deletion logic here using the rowData object
+            rowData = JSON.parse(rowData);
+            console.log("Deleting row:",rowData);
+
+            const res = await(await fetch("/api/delete", {
+              method: "POST",
+              body: JSON.stringify(rowData),
+              headers:{
+                'Content-Type': 'application/json'
+              }
+            })).json();
+            if(res.success) {
+              location.reload();
+            }
+            // Example: Send an AJAX request to delete the row on the server
+            // You can use fetch or an AJAX library like Axios for this purpose
+            // After deletion, you may want to reload the page or update the table
+            
+        }
+    </script>
+</body>
+</html>

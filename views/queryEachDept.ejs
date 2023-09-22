@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Department Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+ 
+            padding: 20px 0;
+            margin: 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Each Department Statistics</h1>
+    <table>
+        <tr>
+            <th>Department</th>
+            <th>Mean Salary</th>
+            <th>Maximum Salary</th>
+            <th>Minimum Salary</th>
+        </tr>
+        <% departmentStats.forEach((department) => { %>
+            <tr>
+                <td><%= department.department %></td>
+                <td><%= department.mean.toFixed(2) %></td>
+                <td><%= department.maximum %></td>
+                <td><%= department.minimum %></td>
+            </tr>
+        <% }); %>
+    </table>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Department and Sub-Department Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+ 
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Each Department and Subdepartment Statistics</h1>
+    <table>
+        <tr>
+            <th>Department</th>
+            <th>Sub-Department</th>
+            <th>Mean Salary</th>
+            <th>Max Salary</th>
+            <th>Min Salary</th>
+        </tr>
+        <% for (const department in departmentStats) { %>
+            <% for (const sub_department in departmentStats[department]) { %>
+                <tr>
+                    <td><%= department %></td>
+                    <td><%= sub_department %></td>
+                    <td><%= departmentStats[department][sub_department].mean %></td>
+                    <td><%= departmentStats[department][sub_department].max %></td>
+                    <td><%= departmentStats[department][sub_department].min %></td>
+                </tr>
+            <% } %>
+        <% } %>
+    </table>
+</body>
+</html>

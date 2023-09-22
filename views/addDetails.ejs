@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .form-input {
+            width: 92%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-submit {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-left: 100px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Add Data</h1>
+        <form action="/api/add" method="POST">
+            <input class="form-input" type="text" name="name" placeholder="Name" required />
+            <input class="form-input" type="text" name="salary" placeholder="Salary" required />
+            <input class="form-input" type="text" name="currency" placeholder="Currency" required />
+            <input class="form-input" type="text" name="department" placeholder="Department" required />
+            <input class="form-input" type="text" name="on_contract" placeholder="On Contract" required />
+            <input class="form-input" type="text" name="sub_department" placeholder="Sub Department" required />
+ 
+            <input class="form-submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

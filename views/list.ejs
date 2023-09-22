@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #buttons-container {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <!-- Create 6 buttons -->
+    <div id="buttons-container">
+        <button id="addData">Add Data</button>
+        <button id="deleteData">Delete Data</button>
+        <button id="SS Entire Dataset">SS Entire Dataset</button>
+        <button id="SS Each Department">SS Each Department</button>
+        <button id="SS on dept & sub dept">SS on dept & sub dept</button>
+        <button id="SS on Contract">SS on Contract</button>
+    </div>
+
+    <script>
+        // Function to call the API
+        function callApi(apiUrl) {
+            window.location.href = apiUrl;
+        }
+
+        // Add click event listeners to the buttons
+        document.getElementById('addData').addEventListener('click', () => {
+            callApi('/api/add');
+        });
+        document.getElementById('deleteData').addEventListener('click', () => {
+            callApi('/api/delete');
+        });
+        document.getElementById('SS Entire Dataset').addEventListener('click', () => {
+            callApi('/api/entire-dataset');
+        });
+        document.getElementById('SS Each Department').addEventListener('click', () => {
+            callApi('/api/eachDept');
+        });
+        document.getElementById('SS on dept & sub dept').addEventListener('click', () => {
+            callApi('/api/onSubdept');
+        });
+        document.getElementById('SS on Contract').addEventListener('click', () => {
+            callApi('/api/onContract');
+        });
+    </script>
+</body>
+</html>

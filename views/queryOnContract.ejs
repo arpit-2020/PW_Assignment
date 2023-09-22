@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Statistics for On Contract Employees</h2>
+            <p>Mean Salary: <%= resultObject.meanSalary %></p>
+            <p>Max Salary: <%= resultObject.maxSalary %></p>
+            <p>Min Salary: <%= resultObject.minSalary %></p>
+        </div>
+    </div>
+</body>
+</html>
